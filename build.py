@@ -118,35 +118,20 @@ EXTRA = {
       <p class="muted">Model frames computed every 0.05 V from −1.0 to −2.5 V vs SHE; 2D model of the microfluidic flow cell (electrolyte channel, catalyst layer, gas diffusion layer, gas channel).</p>
     </section>""",
     "droplets-lbm.html": """
-    <section class="viewer">
+    <section class="viewer narrow">
       <h2>Experiment vs. simulation</h2>
-      <p class="section-sub">High-speed movies of the T-junction experiments (left) next to the lattice Boltzmann simulations (right) for the three droplet flow regimes.</p>
-      <div class="compare">
-        <div class="cmp-head"></div><div class="cmp-head">Experiment</div><div class="cmp-head">LBM simulation</div>
-        <div class="cmp-label">Droplet at T-junction</div>
-        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/exp_dtj.mp4"></video>
-        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/sim_dtj.mp4"></video>
-        <div class="cmp-label">Droplet in channel</div>
-        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/exp_dc.mp4"></video>
-        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/sim_dc.mp4"></video>
-        <div class="cmp-label">Parallel flow</div>
-        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/exp_pf.mp4"></video>
-        <img src="{up}assets/media/lbm/sim_pf.png" alt="Simulated parallel flow">
-      </div>
-      <p class="muted">Simulations: Cr = 100, 10 and 0.01 (top to bottom) at Ca = 0.5, n = 0.5.</p>
+      <p class="section-sub">High-speed movies of the T-junction experiments next to the lattice Boltzmann simulations for the three droplet flow regimes.</p>
+      <video class="clip" autoplay loop muted playsinline preload="metadata" poster="{up}assets/media/lbm/exp_vs_lbm_poster.jpg" src="{up}assets/media/lbm/exp_vs_lbm.mp4"></video>
+      <p class="muted">Experiment frames mirrored and cropped to the junction so that both columns flow left to right. Simulations: Cr = 100, 10 and 0.01 (top to bottom) at Ca = 0.5, n = 0.5.</p>
     </section>
-    <section class="viewer">
+    <section class="viewer narrow">
       <h2>Effect of shear thinning</h2>
-      <p class="section-sub">Lower power-law index n (stronger shear thinning of the continuous phase) delays pinch-off and gives larger droplets (Ca = 0.1, Cr = 1).</p>
+      <p class="section-sub">A lower power-law index n (stronger shear thinning of the continuous phase) gives larger droplets; Ca = 0.1, Cr = 1.</p>
       <div class="sim-row">
         <figure><video autoplay loop muted playsinline src="{up}assets/media/lbm/sim_n10.mp4"></video><figcaption>n = 1.0 (Newtonian)</figcaption></figure>
         <figure><video autoplay loop muted playsinline src="{up}assets/media/lbm/sim_n07.mp4"></video><figcaption>n = 0.7</figcaption></figure>
         <figure><video autoplay loop muted playsinline src="{up}assets/media/lbm/sim_n03.mp4"></video><figcaption>n = 0.3</figcaption></figure>
       </div>
-    </section>
-    <section class="viewer">
-      <h2>Squeezing regime in the experiment</h2>
-      <video autoplay loop muted playsinline preload="metadata" poster="{up}assets/media/lbm/exp_dc_poster.jpg" src="{up}assets/media/lbm/exp_squeezing.mp4"></video>
     </section>""",
 }
 

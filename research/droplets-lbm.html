@@ -9,7 +9,7 @@
   <meta property="og:description" content="Venu Gopal Agarwal — computational researcher in electrochemical energy conversion at EPFL.">
   <meta property="og:image" content="https://venuagarwal.com/assets/img/profile.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7490'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EVA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="../assets/css/style.css?v=9f2c5096">
+  <link rel="stylesheet" href="../assets/css/style.css?v=7c31c516">
 </head>
 <body>
 <header class="site">
@@ -40,35 +40,20 @@
       </ul>
       <div class="note">V. G. Agarwal, R. Singh, S. S. Bahga, A. Gupta, <a href="https://doi.org/10.1103/PhysRevFluids.5.044203">Physical Review Fluids 5, 044203 (2020)</a>.</div>
     </div>
-    <section class="viewer">
+    <section class="viewer narrow">
       <h2>Experiment vs. simulation</h2>
-      <p class="section-sub">High-speed movies of the T-junction experiments (left) next to the lattice Boltzmann simulations (right) for the three droplet flow regimes.</p>
-      <div class="compare">
-        <div class="cmp-head"></div><div class="cmp-head">Experiment</div><div class="cmp-head">LBM simulation</div>
-        <div class="cmp-label">Droplet at T-junction</div>
-        <video autoplay loop muted playsinline preload="metadata" src="../assets/media/lbm/exp_dtj.mp4"></video>
-        <video autoplay loop muted playsinline preload="metadata" src="../assets/media/lbm/sim_dtj.mp4"></video>
-        <div class="cmp-label">Droplet in channel</div>
-        <video autoplay loop muted playsinline preload="metadata" src="../assets/media/lbm/exp_dc.mp4"></video>
-        <video autoplay loop muted playsinline preload="metadata" src="../assets/media/lbm/sim_dc.mp4"></video>
-        <div class="cmp-label">Parallel flow</div>
-        <video autoplay loop muted playsinline preload="metadata" src="../assets/media/lbm/exp_pf.mp4"></video>
-        <img src="../assets/media/lbm/sim_pf.png" alt="Simulated parallel flow">
-      </div>
-      <p class="muted">Simulations: Cr = 100, 10 and 0.01 (top to bottom) at Ca = 0.5, n = 0.5.</p>
+      <p class="section-sub">High-speed movies of the T-junction experiments next to the lattice Boltzmann simulations for the three droplet flow regimes.</p>
+      <video class="clip" autoplay loop muted playsinline preload="metadata" poster="../assets/media/lbm/exp_vs_lbm_poster.jpg" src="../assets/media/lbm/exp_vs_lbm.mp4"></video>
+      <p class="muted">Experiment frames mirrored and cropped to the junction so that both columns flow left to right. Simulations: Cr = 100, 10 and 0.01 (top to bottom) at Ca = 0.5, n = 0.5.</p>
     </section>
-    <section class="viewer">
+    <section class="viewer narrow">
       <h2>Effect of shear thinning</h2>
-      <p class="section-sub">Lower power-law index n (stronger shear thinning of the continuous phase) delays pinch-off and gives larger droplets (Ca = 0.1, Cr = 1).</p>
+      <p class="section-sub">A lower power-law index n (stronger shear thinning of the continuous phase) gives larger droplets; Ca = 0.1, Cr = 1.</p>
       <div class="sim-row">
         <figure><video autoplay loop muted playsinline src="../assets/media/lbm/sim_n10.mp4"></video><figcaption>n = 1.0 (Newtonian)</figcaption></figure>
         <figure><video autoplay loop muted playsinline src="../assets/media/lbm/sim_n07.mp4"></video><figcaption>n = 0.7</figcaption></figure>
         <figure><video autoplay loop muted playsinline src="../assets/media/lbm/sim_n03.mp4"></video><figcaption>n = 0.3</figcaption></figure>
       </div>
-    </section>
-    <section class="viewer">
-      <h2>Squeezing regime in the experiment</h2>
-      <video autoplay loop muted playsinline preload="metadata" poster="../assets/media/lbm/exp_dc_poster.jpg" src="../assets/media/lbm/exp_squeezing.mp4"></video>
     </section>
   </div>
 </main>
