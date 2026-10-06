@@ -1,9 +1,10 @@
 """Builds the static site: python build.py  (writes the .html files next to this script)."""
-import os
+import os, hashlib
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 NAV = [("Home", "index.html"), ("Research", "research/index.html"), ("Publications", "publications.html"),
        ("CV", "cv.html"), ("Contact", "contact.html")]
+CSSV = hashlib.md5(open(os.path.join(ROOT, "assets/css/style.css"), "rb").read()).hexdigest()[:8]
 DESC = "Venu Gopal Agarwal — computational researcher in electrochemical energy conversion at EPFL."
 
 
@@ -24,7 +25,7 @@ def page(path, title, body, desc=DESC, raw=False):
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="https://venuagarwal.com/assets/img/profile.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7490'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EVA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="{up}assets/css/style.css">
+  <link rel="stylesheet" href="{up}assets/css/style.css?v={CSSV}">
 </head>
 <body>
 <header class="site">
