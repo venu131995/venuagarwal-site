@@ -109,7 +109,8 @@ EXTRA = {
       <h2>Ideally wetted vs. fully flooded</h2>
       <p class="section-sub">Dissolved CO<sub>2</sub> (electrolyte channel, catalyst layer) and gaseous CO<sub>2</sub> (GDL, gas channel) during the potential sweep, with the CO and H<sub>2</sub> partial currents of the same models.</p>
       <video class="clip" autoplay loop muted playsinline preload="metadata" poster="{up}assets/media/gde_poster.jpg" src="{up}assets/media/gde_wetted_vs_flooded.mp4"></video>
-      <p class="muted">2D model of the microfluidic flow cell; frames computed every 0.05 V and interpolated in between. Panels have separate x scales; dotted lines mark the electrode ends. <a href="gde-explorer.html">Step through the potentials with a slider ↗</a></p>
+      <p class="muted">2D model of the microfluidic flow cell; frames computed every 0.05 V and interpolated in between. Panels have separate x scales; dotted lines mark the electrode ends.</p>
+      <p><a class="btn primary" href="gde-explorer.html">Open the interactive slider →</a></p>
     </section>""",
     "droplets-lbm.html": """
     <section class="viewer narrow">
