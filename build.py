@@ -154,7 +154,7 @@ page("index.html", "Venu Gopal Agarwal — CO2 electrolysis modelling, EPFL", f"
   <div class="wrap section">
     <h2>Research highlights</h2>
     <p class="section-sub">Current and recent projects — click a card for details.</p>
-    <div class="cards">
+    <div class="cards two">
 {chr(10).join(card(p) for p in PROJECTS[:4])}
     </div>
   </div>""", raw=True)

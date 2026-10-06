@@ -144,3 +144,5 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .portrait { order: -1; width: min(260px, 70%); }
   .stats { grid-template-columns: repeat(2, 1fr); }
 }
+.cards.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 720px) { .cards.two { grid-template-columns: 1fr; } }
