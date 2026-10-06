@@ -74,7 +74,8 @@ PROJECTS = [
      "Gas diffusion electrodes deliver CO<sub>2</sub> to the catalyst in the gas phase, but performance is still set by how fast reactants and products move through the porous layers and electrolyte.",
      ["Two-dimensional model of a gas-diffusion cathode in a microfluidic flow cell, resolving coupled charge, species and momentum transport.",
       "Validated against experimental data.",
-      "Quantified which transport processes limit performance and where."],
+      "Quantified which transport processes limit performance and where.",
+      "Interactive viewer and movie below: the model across the full potential sweep."],
      'V. G. Agarwal, S. Haussener, <a href="https://doi.org/10.1038/s42004-024-01122-5">Communications Chemistry 7, 47 (2024)</a> — open access.'),
     ("buffer-dissociation.html", "🧪", "Field-enhanced dissociation of buffer species", "Collaboration", "ACS Electrochemistry · 2025",
      "Strong interfacial electric fields can accelerate the dissociation of protonated buffer species, changing the local pH near electrodes and membranes.",
@@ -101,6 +102,22 @@ def card(p):
             f'        <h3>{t}</h3>\n        <p>{short}</p>\n        {tagh}\n      </a>')
 
 
+EXTRA = {
+    "microfluidic-gde.html": """
+    <section class="viewer">
+      <h2>Explore the model</h2>
+      <p class="section-sub">Drag the slider along the potential sweep to compare an ideally wetted and a fully flooded catalyst layer: dissolved CO<sub>2</sub> in the electrolyte channel and catalyst layer, CO<sub>2</sub> in the gas, and the CO and H<sub>2</sub> partial currents. <a href="gde-explorer.html">Open full screen ↗</a></p>
+      <iframe src="gde-explorer.html" title="Interactive 2D GDE model explorer" loading="lazy"></iframe>
+    </section>
+    <section class="viewer">
+      <h2>The potential sweep as a movie</h2>
+      <video controls preload="none" poster="{up}assets/media/gde_poster.jpg">
+        <source src="{up}assets/media/gde_wetted_vs_flooded.mp4" type="video/mp4">
+      </video>
+      <p class="muted">Model frames computed every 0.05 V from −1.0 to −2.5 V vs SHE; 2D model of the microfluidic flow cell (electrolyte channel, catalyst layer, gas diffusion layer, gas channel).</p>
+    </section>""",
+}
+
 for p in PROJECTS:
     fn, icon, title, period, tag, intro, points, foot = p
     lis = "\n".join(f"      <li>{x}</li>" for x in points)
@@ -117,7 +134,7 @@ for p in PROJECTS:
 {lis}
       </ul>
       <div class="note">{foot}</div>
-    </div>""")
+    </div>{EXTRA.get(fn, "")}""")
 
 page("research/index.html", "Research | Venu Gopal Agarwal", f"""    <h1 class="page">Research</h1>
     <p class="section-sub lead">Physics-based models of electrochemical energy-conversion devices — coupled, nonlinear transport of charge, species, water, heat and momentum — validated against experiments to find what limits performance and lifetime.</p>

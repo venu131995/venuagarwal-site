@@ -38,9 +38,22 @@
       <li>Two-dimensional model of a gas-diffusion cathode in a microfluidic flow cell, resolving coupled charge, species and momentum transport.</li>
       <li>Validated against experimental data.</li>
       <li>Quantified which transport processes limit performance and where.</li>
+      <li>Interactive viewer and movie below: the model across the full potential sweep.</li>
       </ul>
       <div class="note">V. G. Agarwal, S. Haussener, <a href="https://doi.org/10.1038/s42004-024-01122-5">Communications Chemistry 7, 47 (2024)</a> — open access.</div>
     </div>
+    <section class="viewer">
+      <h2>Explore the model</h2>
+      <p class="section-sub">Drag the slider along the potential sweep to compare an ideally wetted and a fully flooded catalyst layer: dissolved CO<sub>2</sub> in the electrolyte channel and catalyst layer, CO<sub>2</sub> in the gas, and the CO and H<sub>2</sub> partial currents. <a href="gde-explorer.html">Open full screen ↗</a></p>
+      <iframe src="gde-explorer.html" title="Interactive 2D GDE model explorer" loading="lazy"></iframe>
+    </section>
+    <section class="viewer">
+      <h2>The potential sweep as a movie</h2>
+      <video controls preload="none" poster="../assets/media/gde_poster.jpg">
+        <source src="../assets/media/gde_wetted_vs_flooded.mp4" type="video/mp4">
+      </video>
+      <p class="muted">Model frames computed every 0.05 V from −1.0 to −2.5 V vs SHE; 2D model of the microfluidic flow cell (electrolyte channel, catalyst layer, gas diffusion layer, gas channel).</p>
+    </section>
   </div>
 </main>
 <footer>
