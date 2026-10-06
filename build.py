@@ -86,7 +86,7 @@ PROJECTS = [
      "How droplets form and how the flow regime changes in a T-shaped microfluidic device.",
      ["Parallel (MPI) lattice Boltzmann solver written from scratch in C/C++.",
       "Validated against in-house experiments."],
-     'V. G. Agarwal, R. Singh, S. S. Bagha, A. Gupta, <a href="https://doi.org/10.1103/PhysRevFluids.5.044203">Physical Review Fluids 5, 044203 (2020)</a>.'),
+     'V. G. Agarwal, R. Singh, S. S. Bahga, A. Gupta, <a href="https://doi.org/10.1103/PhysRevFluids.5.044203">Physical Review Fluids 5, 044203 (2020)</a>.'),
     ("battery-rom.html", "🔋", "Real-time state of charge of Li-ion cells", "Research assistant, IIT Delhi · 2020", "",
      "Battery management systems need fast, accurate state-of-charge estimates.",
      ["Data-driven, control-oriented reduced-order model (discrete-time realisation algorithm) for a Li-ion cell.",
@@ -116,6 +116,37 @@ EXTRA = {
         <source src="{up}assets/media/gde_wetted_vs_flooded.mp4" type="video/mp4">
       </video>
       <p class="muted">Model frames computed every 0.05 V from −1.0 to −2.5 V vs SHE; 2D model of the microfluidic flow cell (electrolyte channel, catalyst layer, gas diffusion layer, gas channel).</p>
+    </section>""",
+    "droplets-lbm.html": """
+    <section class="viewer">
+      <h2>Experiment vs. simulation</h2>
+      <p class="section-sub">High-speed movies of the T-junction experiments (left) next to the lattice Boltzmann simulations (right) for the three droplet flow regimes.</p>
+      <div class="compare">
+        <div class="cmp-head"></div><div class="cmp-head">Experiment</div><div class="cmp-head">LBM simulation</div>
+        <div class="cmp-label">Droplet at T-junction</div>
+        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/exp_dtj.mp4"></video>
+        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/sim_dtj.mp4"></video>
+        <div class="cmp-label">Droplet in channel</div>
+        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/exp_dc.mp4"></video>
+        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/sim_dc.mp4"></video>
+        <div class="cmp-label">Parallel flow</div>
+        <video autoplay loop muted playsinline preload="metadata" src="{up}assets/media/lbm/exp_pf.mp4"></video>
+        <img src="{up}assets/media/lbm/sim_pf.png" alt="Simulated parallel flow">
+      </div>
+      <p class="muted">Simulations: Cr = 100, 10 and 0.01 (top to bottom) at Ca = 0.5, n = 0.5.</p>
+    </section>
+    <section class="viewer">
+      <h2>Effect of shear thinning</h2>
+      <p class="section-sub">Lower power-law index n (stronger shear thinning of the continuous phase) delays pinch-off and gives larger droplets (Ca = 0.1, Cr = 1).</p>
+      <div class="sim-row">
+        <figure><video autoplay loop muted playsinline src="{up}assets/media/lbm/sim_n10.mp4"></video><figcaption>n = 1.0 (Newtonian)</figcaption></figure>
+        <figure><video autoplay loop muted playsinline src="{up}assets/media/lbm/sim_n07.mp4"></video><figcaption>n = 0.7</figcaption></figure>
+        <figure><video autoplay loop muted playsinline src="{up}assets/media/lbm/sim_n03.mp4"></video><figcaption>n = 0.3</figcaption></figure>
+      </div>
+    </section>
+    <section class="viewer">
+      <h2>Squeezing regime in the experiment</h2>
+      <video autoplay loop muted playsinline preload="metadata" poster="{up}assets/media/lbm/exp_dc_poster.jpg" src="{up}assets/media/lbm/exp_squeezing.mp4"></video>
     </section>""",
 }
 
@@ -183,7 +214,7 @@ PUBS = [
     ("Communications Chemistry · 2024", "Quantifying mass transport limitations in a microfluidic CO<sub>2</sub> electrolyzer with a gas diffusion cathode",
      "<b>V. G. Agarwal</b>, S. Haussener", "https://doi.org/10.1038/s42004-024-01122-5"),
     ("Physical Review Fluids · 2020", "Dynamics of droplet formation and flow regime transition in a T-shaped microfluidic device",
-     "<b>V. G. Agarwal</b>, R. Singh, S. S. Bagha, A. Gupta", "https://doi.org/10.1103/PhysRevFluids.5.044203"),
+     "<b>V. G. Agarwal</b>, R. Singh, S. S. Bahga, A. Gupta", "https://doi.org/10.1103/PhysRevFluids.5.044203"),
 ]
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
