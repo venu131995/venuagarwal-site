@@ -105,17 +105,11 @@ def card(p):
 
 EXTRA = {
     "microfluidic-gde.html": """
-    <section class="viewer">
-      <h2>Explore the model</h2>
-      <p class="section-sub">Drag the slider along the potential sweep to compare an ideally wetted and a fully flooded catalyst layer: dissolved CO<sub>2</sub> in the electrolyte channel and catalyst layer, CO<sub>2</sub> in the gas, and the CO and H<sub>2</sub> partial currents. <a href="gde-explorer.html">Open full screen ↗</a></p>
-      <iframe src="gde-explorer.html" title="Interactive 2D GDE model explorer" loading="lazy"></iframe>
-    </section>
-    <section class="viewer">
-      <h2>The potential sweep as a movie</h2>
-      <video controls preload="none" poster="{up}assets/media/gde_poster.jpg">
-        <source src="{up}assets/media/gde_wetted_vs_flooded.mp4" type="video/mp4">
-      </video>
-      <p class="muted">Model frames computed every 0.05 V from −1.0 to −2.5 V vs SHE; 2D model of the microfluidic flow cell (electrolyte channel, catalyst layer, gas diffusion layer, gas channel).</p>
+    <section class="viewer narrow wide">
+      <h2>Ideally wetted vs. fully flooded</h2>
+      <p class="section-sub">Dissolved CO<sub>2</sub> (electrolyte channel, catalyst layer) and gaseous CO<sub>2</sub> (GDL, gas channel) during the potential sweep, with the CO and H<sub>2</sub> partial currents of the same models.</p>
+      <video class="clip" autoplay loop muted playsinline preload="metadata" poster="{up}assets/media/gde_poster.jpg" src="{up}assets/media/gde_wetted_vs_flooded.mp4"></video>
+      <p class="muted">2D model of the microfluidic flow cell; frames computed every 0.05 V and interpolated in between. Panels have separate x scales; dotted lines mark the electrode ends. <a href="gde-explorer.html">Step through the potentials with a slider ↗</a></p>
     </section>""",
     "droplets-lbm.html": """
     <section class="viewer narrow">

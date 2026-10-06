@@ -9,7 +9,7 @@
   <meta property="og:description" content="Venu Gopal Agarwal — computational researcher in electrochemical energy conversion at EPFL.">
   <meta property="og:image" content="https://venuagarwal.com/assets/img/profile.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7490'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EVA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="../assets/css/style.css?v=7c31c516">
+  <link rel="stylesheet" href="../assets/css/style.css?v=f47f73f7">
 </head>
 <body>
 <header class="site">
@@ -42,17 +42,11 @@
       </ul>
       <div class="note">V. G. Agarwal, S. Haussener, <a href="https://doi.org/10.1038/s42004-024-01122-5">Communications Chemistry 7, 47 (2024)</a> — open access.</div>
     </div>
-    <section class="viewer">
-      <h2>Explore the model</h2>
-      <p class="section-sub">Drag the slider along the potential sweep to compare an ideally wetted and a fully flooded catalyst layer: dissolved CO<sub>2</sub> in the electrolyte channel and catalyst layer, CO<sub>2</sub> in the gas, and the CO and H<sub>2</sub> partial currents. <a href="gde-explorer.html">Open full screen ↗</a></p>
-      <iframe src="gde-explorer.html" title="Interactive 2D GDE model explorer" loading="lazy"></iframe>
-    </section>
-    <section class="viewer">
-      <h2>The potential sweep as a movie</h2>
-      <video controls preload="none" poster="../assets/media/gde_poster.jpg">
-        <source src="../assets/media/gde_wetted_vs_flooded.mp4" type="video/mp4">
-      </video>
-      <p class="muted">Model frames computed every 0.05 V from −1.0 to −2.5 V vs SHE; 2D model of the microfluidic flow cell (electrolyte channel, catalyst layer, gas diffusion layer, gas channel).</p>
+    <section class="viewer narrow wide">
+      <h2>Ideally wetted vs. fully flooded</h2>
+      <p class="section-sub">Dissolved CO<sub>2</sub> (electrolyte channel, catalyst layer) and gaseous CO<sub>2</sub> (GDL, gas channel) during the potential sweep, with the CO and H<sub>2</sub> partial currents of the same models.</p>
+      <video class="clip" autoplay loop muted playsinline preload="metadata" poster="../assets/media/gde_poster.jpg" src="../assets/media/gde_wetted_vs_flooded.mp4"></video>
+      <p class="muted">2D model of the microfluidic flow cell; frames computed every 0.05 V and interpolated in between. Panels have separate x scales; dotted lines mark the electrode ends. <a href="gde-explorer.html">Step through the potentials with a slider ↗</a></p>
     </section>
   </div>
 </main>
