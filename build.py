@@ -66,13 +66,13 @@ PROJECTS = [
       "Liquid water in every porous layer with pore-size-based capillary curves and potential-dependent electrowetting.",
       "Precipitated salt treated as a solid phase that changes porosity, permeability, active area and wettability, followed in time.",
       "Calibrated on a Ag/Cs<sup>+</sup> cell; used to compare mitigation strategies such as pulsed operation and thermal gradients over the time scale on which they act."],
-     "Supervisor: Prof. Sophia Haussener."),
+     "Supervisor: Prof. Sophia Haussener.<br>Part of <a href=\"https://u-szeged.hu/news-and-events/2026/szte-researchers-take\">CRUTCHES</a> (CO<sub>2</sub> reduction with tailor-designed cathodes), an international excellence research cooperation led by the University of Szeged (Dr. Balázs Endrődi) with EPFL as a partner, funded by Hungary’s National Research, Development and Innovation Fund (HU-rizont programme, 2025-1.2.1-HU-RIZONT; 2026–2029)."),
     ("bicarbonate.html", "🫧", "Bicarbonate-fed bipolar-membrane electrolysers", "PhD · 2021 – 2026", "manuscript in preparation",
      "Bicarbonate electrolysers convert captured carbon directly, without regenerating and compressing CO<sub>2</sub> gas: protons from a bipolar membrane release CO<sub>2</sub> in the catalyst layer, where it is reduced to CO.",
      ["Coupled the gas-diffusion-electrode and bipolar-membrane models into one integrated electrolyser model linking electrochemistry, ion transport and water management.",
       "Validated against measured CO faradaic efficiencies.",
       "Used the model to evaluate catalyst-layer, substrate and membrane designs."],
-     "Supervisor: Prof. Sophia Haussener.<br>Funded by the Swiss National Science Foundation, project <a href=\"https://data.snf.ch/grants/grant/197268\">200021_197268</a> “Overcoming fluid transport limitations in gas-fed CO<sub>2</sub> reduction devices with bipolar membranes” (PSI and EPFL, 2021–2026)."),
+     "Supervisor: Prof. Sophia Haussener.<br>Funded by the EPFLglobaLeaders programme (EU Horizon 2020 Marie Skłodowska-Curie grant agreement No 945363) and the Swiss National Science Foundation, project <a href=\"https://data.snf.ch/grants/grant/197268\">200021_197268</a> “Overcoming fluid transport limitations in gas-fed CO<sub>2</sub> reduction devices with bipolar membranes” (PSI and EPFL, 2021–2026)."),
     ("bpm.html", "⚡", "Bipolar membrane modelling", "PhD · 2021 – 2026", "manuscript under review",
      "Bipolar membranes split water at the junction between a cation- and an anion-exchange layer, driven by strong local electric fields.",
      ["One-dimensional Poisson–Nernst–Planck model with electric-field-enhanced (second Wien effect) water dissociation.",
@@ -110,13 +110,18 @@ THUMB = {"crutches.html": "assets/graphics/crutches.svg", "bicarbonate.html": "a
 OGIMG = {k: (v if v.endswith(".jpg") else "assets/img/profile.jpg") for k, v in THUMB.items()}
 
 
+FUND = {"crutches.html": "HU-rizont (NKFI, Hungary)", "bicarbonate.html": "EU MSCA · SNSF", "bpm.html": "EU MSCA · SNSF",
+        "microfluidic-gde.html": "EU MSCA · SNSF"}
+
+
 def card(p):
     fn, icon, t, per, tag, intro, pts, foot = p
     short = intro if len(intro) < 160 else intro[:160].rsplit(" ", 1)[0] + "…"
     tagh = f'<span class="tag">{tag}</span>' if tag else '<span class="tag">' + per + '</span>'
     top = f'<img class="thumb" src="{{up}}{THUMB[fn]}" alt="Illustration: {t.replace('<sub>', '').replace('</sub>', '')}" loading="lazy">' if fn in THUMB else f'<div class="icon">{icon}</div>'
     return (f'      <a class="card" href="{{up}}research/{fn}">\n        {top}\n'
-            f'        <h3>{t}</h3>\n        <p>{short}</p>\n        {tagh}\n      </a>')
+            f'        <h3>{t}</h3>\n        <p>{short}</p>\n        {tagh}'
+            + (f'\n        <span class="fund">Funding: {FUND[fn]}</span>' if fn in FUND else '') + '\n      </a>')
 
 
 EXTRA = {
