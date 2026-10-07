@@ -334,7 +334,7 @@ _rows = chr(10).join(
     f'    <div class="pub conf-item" id="c{i + 1}"><span class="num {"poster" if c[1] == "Poster" else "talk"}">{i + 1}</span><div>'
     f'<span class="venue{" alt" if c[1] == "Poster" else ""}">{c[1]}</span> <span class="muted">{c[0]}</span>'
     f'<p class="title">{c[2]}</p><p class="authors">{c[3]}' + (f' · <a href="{c[4]}">{next((v for key, v in LINKTXT.items() if key in c[4]), "Link")} ↗</a>' if c[4] else '') + '</p></div></div>'
-    for i, c in enumerate(CONF))
+    for i, c in reversed(list(enumerate(CONF))))
 _ntalk = sum(c[1] != "Poster" for c in CONF)
 page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="page">Conferences</h1>
     <p class="section-sub lead">Talks and posters presented for scientific exchange: {len(CONF)} contributions in {len(_countries)} countries ({", ".join(_countries)}).</p>
