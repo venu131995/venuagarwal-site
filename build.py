@@ -124,6 +124,13 @@ def card(p):
 
 
 EXTRA = {
+    "bpm.html": """
+    <section class="viewer narrow wide">
+      <h2>From salt crossover to water-transport limitation</h2>
+      <p class="section-sub">Model of a reverse-biased bipolar membrane in 1 M KHCO<sub>3</sub> swept from 0 to 2 V: the polarization curve passes through four regimes (left), while the electric field at the cation|anion-exchange junction sharpens (top right) and the water inside the membrane is drawn down where it is split (bottom right).</p>
+      <video class="clip" autoplay loop muted playsinline preload="metadata" poster="{up}assets/media/bpm_regimes_poster.jpg" src="{up}assets/media/bpm_regimes.mp4"></video>
+      <p class="muted">Base case of the manuscript under review (&alpha;<sub>CL</sub> = 0.13), compared with the measurements of Bui et al. The field-enhancement factor is the model's increase of the water-dissociation rate at the junction.</p>
+    </section>""",
     "microfluidic-gde.html": """
     <section class="viewer narrow wide">
       <h2>Ideally wetted vs. fully flooded</h2>
