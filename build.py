@@ -8,6 +8,10 @@ CSSV = hashlib.md5(open(os.path.join(ROOT, "assets/css/style.css"), "rb").read()
 DESC = "Venu Gopal Agarwal — computational researcher in electrochemical energy conversion at EPFL."
 
 
+import math
+EUSTARS = "".join(f'<circle cx="{15 + 6 * math.sin(2 * math.pi * k / 12):.2f}" cy="{10 - 6 * math.cos(2 * math.pi * k / 12):.2f}" r="0.9"/>' for k in range(12))
+
+
 def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg"):
     up = "../" * path.count("/")
     nav = "\n".join(
@@ -43,6 +47,7 @@ def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg"):
 {inner.replace('{up}', up)}
 </main>
 <footer>
+  <div class="wrap eu"><svg viewBox="0 0 30 20" width="36" height="24" aria-label="Flag of the European Union" role="img"><rect width="30" height="20" fill="#003399"/><g fill="#FFCC00">{EUSTARS}</g></svg><span>PhD research funded by the EPFLglobaLeaders programme, which received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 945363.</span></div>
   <div class="wrap"><span>© 2026 Venu Gopal Agarwal</span><span><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Scholar</a> · <a href="https://orcid.org/0000-0003-2992-6539">ORCID</a> · <a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a> · LRESE, EPFL</span></div>
 </footer>
 </body>
@@ -109,7 +114,7 @@ def card(p):
     fn, icon, t, per, tag, intro, pts, foot = p
     short = intro if len(intro) < 160 else intro[:160].rsplit(" ", 1)[0] + "…"
     tagh = f'<span class="tag">{tag}</span>' if tag else '<span class="tag">' + per + '</span>'
-    top = f'<img class="thumb" src="{{up}}{THUMB[fn]}" alt="" loading="lazy">' if fn in THUMB else f'<div class="icon">{icon}</div>'
+    top = f'<img class="thumb" src="{{up}}{THUMB[fn]}" alt="Illustration: {t.replace('<sub>', '').replace('</sub>', '')}" loading="lazy">' if fn in THUMB else f'<div class="icon">{icon}</div>'
     return (f'      <a class="card" href="{{up}}research/{fn}">\n        {top}\n'
             f'        <h3>{t}</h3>\n        <p>{short}</p>\n        {tagh}\n      </a>')
 
@@ -241,7 +246,7 @@ page("index.html", "Venu Gopal Agarwal — CO2 electrolysis modelling, EPFL", f"
         <div class="stat"><b>PhD, EPFL</b><span>Energy Sciences, 2026</span></div>
         <div class="stat"><b>MSCA fellow</b><span>EPFLglobaLeaders, Horizon 2020</span></div>
         <div class="stat"><b>Gold Medal</b><span>M.S. (R), IIT Delhi</span></div>
-        <div class="stat"><b>Invited talk</b><span>ECS meeting 2024</span></div>
+        <div class="stat"><b>7 conference talks &amp; posters</b><span>ECS, ModVal, SCS</span></div>
       </div>
     </div>
   </section>
@@ -270,7 +275,7 @@ TALKS = [  # (meeting, type, title, authors, link) - SNSF report, M.S. defence s
      "<b>V. Agarwal</b>, P. Brimley, S. Haussener", "https://scg.ch/component/eventbooking/scs-spring-meeting-2025-electrocatalysis-current-challenges-and-future-perspectives"),
     ("ModVal 2025, Karlsruhe, 11–12 Mar 2025", "Poster", "Modelling water transport in bipolar membranes for CO<sub>2</sub> electrolysis application",
      "<b>V. G. Agarwal</b>, P. Brimley, S. Haussener", "https://events.hs-offenburg.de/event/471/attachments/76/359/ModVal%202025%20Book%20of%20Abstracts.pdf#page=76"),
-    ("245th ECS Meeting, San Francisco, May 2024", "Invited talk", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis application",
+    ("245th ECS Meeting, San Francisco, 28 May 2024", "Talk", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis application",
      "<b>V. Agarwal</b>, S. Haussener", "https://doi.org/10.1149/MA2024-01372167mtgabs"),
     ("ModVal 2023, Duisburg, 21–23 Mar 2023", "Poster", "2D model-based performance analysis of a CO<sub>2</sub> electrolyzer with a gas-diffusion electrode",
      "<b>V. Agarwal</b>, S. Haussener", ""),
@@ -334,7 +339,7 @@ page("cv.html", "CV | Venu Gopal Agarwal", """    <h1 class="page">Curriculum vi
 
 page("contact.html", "Contact | Venu Gopal Agarwal", """    <h1 class="page">Contact</h1>
     <div class="cards" style="margin-top:24px">
-      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:13agarwalvenu@gmail.com">13agarwalvenu@gmail.com</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:venu.agarwal@epfl.ch">venu.agarwal@epfl.ch</a> (EPFL)<br><a href="mailto:13agarwalvenu@gmail.com">13agarwalvenu@gmail.com</a></p></div>
       <div class="card"><div class="icon">🏛️</div><h3>Office</h3><p>Laboratory of Renewable Energy Science and Engineering (LRESE)<br>EPFL, 1015 Lausanne, Switzerland</p></div>
       <div class="card"><div class="icon">🔗</div><h3>Profiles</h3><p><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Google Scholar</a><br><a href="https://orcid.org/0000-0003-2992-6539">ORCID 0000-0003-2992-6539</a><br><a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a><br><a href="https://people.epfl.ch/venu.agarwal">EPFL people page</a></p></div>
     </div>""")
