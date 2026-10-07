@@ -374,7 +374,27 @@ page("contact.html", "Contact | Venu Gopal Agarwal", """    <h1 class="page">Con
       <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:venu.agarwal@epfl.ch">venu.agarwal@epfl.ch</a> (EPFL)<br><a href="mailto:13agarwalvenu@gmail.com">13agarwalvenu@gmail.com</a></p></div>
       <div class="card"><div class="icon">🏛️</div><h3>Office</h3><p>Laboratory of Renewable Energy Science and Engineering (LRESE)<br>EPFL, 1015 Lausanne, Switzerland</p></div>
       <div class="card"><div class="icon">🔗</div><h3>Profiles</h3><p><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Google Scholar</a><br><a href="https://orcid.org/0000-0003-2992-6539">ORCID 0000-0003-2992-6539</a><br><a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a><br><a href="https://people.epfl.ch/venu.agarwal">EPFL people page</a></p></div>
-    </div>""")
+    </div>
+    <section class="touch">
+      <h2>Get in touch</h2>
+      <p class="section-sub">Questions about my research, a collaboration idea or an opportunity? Send me a message.</p>
+      <form id="touch" class="touch-form">
+        <div class="row2"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+        <label>Subject<input name="subject" required></label>
+        <label>Message<textarea name="message" rows="6" required></textarea></label>
+        <button class="btn primary" type="submit">Send message →</button>
+        <p class="muted">This opens your email app with the message filled in, addressed to venu.agarwal@epfl.ch.</p>
+      </form>
+    </section>
+    <script>
+      document.getElementById('touch').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var f = e.target, body = f.message.value + '
+
+— ' + f.name.value + ' (' + f.email.value + ')';
+        location.href = 'mailto:venu.agarwal@epfl.ch?subject=' + encodeURIComponent(f.subject.value) + '&body=' + encodeURIComponent(body);
+      });
+    </script>""")
 
 page("404.html", "Page not found | Venu Gopal Agarwal", """    <h1 class="page">Page not found</h1>
     <p class="lead">That page doesn't exist (or has moved).</p>
