@@ -40,7 +40,7 @@ def page(path, title, body, desc=DESC, raw=False):
 {inner.replace('{up}', up)}
 </main>
 <footer>
-  <div class="wrap"><span>© 2026 Venu Gopal Agarwal</span><span>LRESE · EPFL · Lausanne</span></div>
+  <div class="wrap"><span>© 2026 Venu Gopal Agarwal</span><span><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Scholar</a> · <a href="https://orcid.org/0000-0003-2992-6539">ORCID</a> · <a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a> · LRESE, EPFL</span></div>
 </footer>
 </body>
 </html>
@@ -169,6 +169,7 @@ page("index.html", "Venu Gopal Agarwal — CO2 electrolysis modelling, EPFL", f"
             <a class="btn" href="{{up}}publications.html">Publications</a>
             <a class="btn" href="{{up}}cv.html">CV</a>
           </div>
+          <p class="profiles"><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Google Scholar</a> · <a href="https://orcid.org/0000-0003-2992-6539">ORCID</a> · <a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a></p>
         </div>
         {portrait}
       </div>
@@ -239,7 +240,7 @@ page("contact.html", "Contact | Venu Gopal Agarwal", """    <h1 class="page">Con
     <div class="cards" style="margin-top:24px">
       <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:13agarwalvenu@gmail.com">13agarwalvenu@gmail.com</a></p></div>
       <div class="card"><div class="icon">🏛️</div><h3>Office</h3><p>Laboratory of Renewable Energy Science and Engineering (LRESE)<br>EPFL, 1015 Lausanne, Switzerland</p></div>
-      <div class="card"><div class="icon">🔗</div><h3>Profiles</h3><p><a href="https://people.epfl.ch/venu.agarwal">EPFL people page</a><br><a href="https://www.epfl.ch/labs/lrese/">LRESE lab</a></p></div>
+      <div class="card"><div class="icon">🔗</div><h3>Profiles</h3><p><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Google Scholar</a><br><a href="https://orcid.org/0000-0003-2992-6539">ORCID 0000-0003-2992-6539</a><br><a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a><br><a href="https://people.epfl.ch/venu.agarwal">EPFL people page</a></p></div>
     </div>""")
 
 # the old Skills page is merged into the CV

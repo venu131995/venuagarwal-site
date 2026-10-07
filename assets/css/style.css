@@ -162,3 +162,4 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .sim-row figcaption { text-align: center; font-size: 13.5px; color: #5d6878; margin-top: 4px; }
 @media (max-width: 720px) { .sim-row { grid-template-columns: 1fr; } }
 .viewer.narrow.wide { max-width: 1040px; }
+.profiles { margin: 16px 0 0; font-size: 15px; font-weight: 600; }
