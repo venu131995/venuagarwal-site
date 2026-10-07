@@ -176,3 +176,5 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .pub .venue.alt { background: var(--accent-2); color: #1b2330; }
 .eu { align-items: center; justify-content: flex-start !important; gap: 12px !important; font-size: 12.5px; padding-bottom: 0 !important; }
 .eu svg { flex: none; border-radius: 2px; }
+.news { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 30px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent-2); border-radius: 10px; padding: 10px 14px; font-size: 15px; }
+.news-tag { background: var(--accent-2); color: #1b2330; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; border-radius: 6px; padding: 2px 8px; }

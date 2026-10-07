@@ -242,6 +242,7 @@ page("index.html", "Venu Gopal Agarwal — CO2 electrolysis modelling, EPFL", f"
         </div>
         {portrait}
       </div>
+      <div class="news"><span class="news-tag">Latest</span><span><b>Sept 2026</b> · Started as a postdoctoral researcher at LRESE, EPFL, modelling flooding and salt build-up in zero-gap CO<sub>2</sub> electrolysers. <a href="{{up}}research/crutches.html">More →</a></span></div>
       <div class="stats">
         <div class="stat"><b>PhD, EPFL</b><span>Energy Sciences, 2026</span></div>
         <div class="stat"><b>MSCA fellow</b><span>EPFLglobaLeaders, Horizon 2020</span></div>
