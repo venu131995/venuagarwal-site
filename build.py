@@ -263,6 +263,24 @@ PUBS = [
     ("Book chapter, Energy for Propulsion (Springer) · 2018", "Investigation of the role of chemical kinetics in controlling stabilization mechanism of the turbulent lifted jet flame using multi-flamelet generated manifold approach",
      "R. Saini, A. De, <b>V. Agarwal</b>, R. Yadav", "https://doi.org/10.1007/978-981-10-7473-8_12"),
 ]
+TALKS = [  # (meeting, type, title, authors) — from the SNSF report and the M.S. defence slides
+    ("ModVal 2026", "Poster", "Mass transport limitations in a BPM-based bicarbonate-fed CO<sub>2</sub>-to-CO electrolyzer",
+     "<b>V. Agarwal</b>, N. Wanninayake, S. Shah, M. Shahar, A. Smeltz, S. Haussener"),
+    ("Electrocatalysis Conference 2025", "Poster", "Performance comparison between forward- and reverse-biased bipolar membranes for CO<sub>2</sub> electrolysis",
+     "<b>V. Agarwal</b>, P. Brimley, S. Haussener"),
+    ("ModVal 2025", "Poster", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis",
+     "<b>V. Agarwal</b>, P. Brimley, S. Haussener"),
+    ("245th ECS Meeting, 2024", "Invited talk", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis application",
+     "<b>V. Agarwal</b>, S. Haussener · ECS Meeting Abstracts 245, 2167"),
+    ("ModVal 2023", "Poster", "2D model-based performance analysis of a CO<sub>2</sub> electrolyzer with a gas-diffusion electrode",
+     "<b>V. Agarwal</b>, S. Haussener"),
+    ("28th DSFD, JNCASR Bangalore, July 2019", "Talk", "Droplet formation at a T-junction microchannel using a shear-thinning continuous phase",
+     "<b>V. G. Agarwal</b>, R. Singh, A. Gupta"),
+    ("Complex Fluids and Soft Matter, IIT Roorkee, Dec 2018", "Talk", "Towards an understanding of electrohydrodynamic and non-Newtonian effects in T-junction microfluidic devices",
+     "A. Gupta, R. Singh, <b>V. G. Agarwal</b>"),
+]
+talks = "\n".join(f'    <div class="pub"><span class="venue{" alt" if k == "Poster" else ""}">{k} · {m}</span><p class="title">{t}</p><p class="authors">{a}</p></div>'
+                  for m, k, t, a in TALKS)
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
     <p class="section-sub">Peer-reviewed articles.</p>
@@ -273,8 +291,9 @@ page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class
       <div class="card"><h3>Bipolar membrane modelling</h3><p>Field-enhanced water dissociation and ion transport.</p><span class="tag">manuscript</span></div>
       <div class="card"><h3>Flooding and salt in zero-gap electrolysers</h3><p>Mechanisms and mitigation of degradation over time.</p><span class="tag">manuscript</span></div>
     </div>
-    <h2 style="margin-top:40px">Talks</h2>
-    <p>Five conference presentations, including an invited talk at the 2024 meeting of the Electrochemical Society (ECS). Best poster award, IIT Kanpur, 2017.</p>""")
+    <h2 style="margin-top:40px">Talks and posters</h2>
+{talks}
+    <p class="muted" style="margin-top:14px">Best poster award, IIT Kanpur, 2017.</p>""")
 
 page("cv.html", "CV | Venu Gopal Agarwal", """    <h1 class="page">Curriculum vitae</h1>
     <p><a class="btn primary" href="assets/cv/Venu_Gopal_Agarwal_CV.pdf">Download CV (PDF)</a></p>

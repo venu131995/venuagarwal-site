@@ -173,3 +173,4 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .keybox { background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 12px; padding: 16px 20px 6px; margin: 22px 0 26px; }
 .keybox h2 { font-size: 20px; margin: 0 0 10px; color: var(--accent); }
 .keybox li { margin-bottom: 8px; }
+.pub .venue.alt { background: var(--accent-2); color: #1b2330; }
