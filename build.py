@@ -2,7 +2,7 @@
 import os, hashlib
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-NAV = [("Home", "index.html"), ("Research", "research/index.html"), ("Publications", "publications.html"),
+NAV = [("Home", "index.html"), ("Research", "research/index.html"), ("Publications", "publications.html"), ("Conferences", "conferences.html"),
        ("CV", "cv.html"), ("Contact", "contact.html")]
 CSSV = hashlib.md5(open(os.path.join(ROOT, "assets/css/style.css"), "rb").read()).hexdigest()[:8]
 DESC = "Venu Gopal Agarwal — computational researcher in electrochemical energy conversion at EPFL."
@@ -321,6 +321,48 @@ def talk(m, k, t, a, u):
 
 talks = chr(10).join(talk(*x) for x in TALKS)
 
+# conferences page: TALKS order is newest first; coordinates of the venues
+COORD = [(46.5089, 6.6348, "Lausanne", "Switzerland"), (46.9510, 7.4386, "Bern", "Switzerland"),
+         (49.0069, 8.4037, "Karlsruhe", "Germany"), (37.7849, -122.4036, "San Francisco", "USA"),
+         (47.3925, 8.0444, "Aarau", "Switzerland"), (13.0710, 77.5950, "Bengaluru", "India"),
+         (29.8649, 77.8966, "Roorkee", "India")]
+CONF = list(reversed([(*t, *c) for t, c in zip(TALKS, COORD)]))  # oldest first -> numbers 1..N
+import json as _json
+_pts = [dict(n=i + 1, lat=c[5], lon=c[6], city=c[7], kind=c[1], meet=c[0].split(",")[0]) for i, c in enumerate(CONF)]
+_countries = sorted({c[8] for c in CONF})
+_rows = chr(10).join(
+    f'    <div class="pub conf-item" id="c{i + 1}"><span class="num {"poster" if c[1] == "Poster" else "talk"}">{i + 1}</span><div>'
+    f'<span class="venue{" alt" if c[1] == "Poster" else ""}">{c[1]}</span> <span class="muted">{c[0]}</span>'
+    f'<p class="title">{c[2]}</p><p class="authors">{c[3]}' + (f' · <a href="{c[4]}">{next((v for key, v in LINKTXT.items() if key in c[4]), "Link")} ↗</a>' if c[4] else '') + '</p></div></div>'
+    for i, c in enumerate(CONF))
+_ntalk = sum(c[1] != "Poster" for c in CONF)
+page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="page">Conferences</h1>
+    <p class="section-sub lead">Talks and posters presented for scientific exchange: {len(CONF)} contributions in {len(_countries)} countries ({", ".join(_countries)}).</p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+    <div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div>
+    <p class="legend"><span class="num talk">#</span> talk ({_ntalk}) &nbsp; <span class="num poster">#</span> poster ({len(CONF) - _ntalk}) &nbsp;·&nbsp; numbers match the list below; zoom in on Europe for the Swiss meetings</p>
+    <div class="conf-list">
+{_rows}
+    </div>
+    <p class="muted" style="margin-top:14px">Best poster award, IIT Kanpur, 2017.</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+      (function () {{
+        var pts = {_json.dumps(_pts)};
+        var map = L.map('confmap', {{scrollWheelZoom: false, worldCopyJump: true}});
+        L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 18}}).addTo(map);
+        var b = [];
+        pts.forEach(function (p) {{
+          var icon = L.divIcon({{className: '', html: '<span class="num ' + (p.kind === 'Poster' ? 'poster' : 'talk') + '">' + p.n + '</span>', iconSize: [28, 28], iconAnchor: [14, 14]}});
+          L.marker([p.lat, p.lon], {{icon: icon, title: p.n + '. ' + p.meet}}).addTo(map)
+            .bindPopup('<b>' + p.n + '. ' + p.meet + '</b><br>' + p.city + ' · ' + p.kind + '<br><a href="#c' + p.n + '">details ↓</a>');
+          b.push([p.lat, p.lon]);
+        }});
+        map.fitBounds(b, {{padding: [40, 40]}});
+      }})();
+    </script>""", desc="Conference talks and posters by Venu Gopal Agarwal, shown on a world map.")
+
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
     <p class="section-sub">Peer-reviewed articles.</p>
@@ -400,7 +442,7 @@ page("404.html", "Page not found | Venu Gopal Agarwal", """    <h1 class="page">
     <p class="lead">That page doesn't exist (or has moved).</p>
     <p><a class="btn primary" href="/index.html">Home</a> <a class="btn" href="/research/index.html">Research</a></p>""")
 
-PAGES = ["", "research/index.html"] + ["research/" + p[0] for p in PROJECTS] + ["research/gde-explorer.html", "publications.html", "cv.html", "contact.html"]
+PAGES = ["", "conferences.html", "research/index.html"] + ["research/" + p[0] for p in PROJECTS] + ["research/gde-explorer.html", "publications.html", "cv.html", "contact.html"]
 NL = chr(10)
 open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(
     '<?xml version="1.0" encoding="UTF-8"?>' + NL + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + NL
