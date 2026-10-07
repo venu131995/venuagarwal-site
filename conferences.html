@@ -12,7 +12,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://venuagarwal.com/conferences.html">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7490'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EVA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=7d8431b2">
+  <link rel="stylesheet" href="assets/css/style.css?v=1b4f5eea">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 <header class="site">
@@ -32,7 +33,6 @@
   <div class="wrap section">
     <h1 class="page">Conferences</h1>
     <p class="section-sub lead">Talks and posters presented for scientific exchange: 7 contributions in 4 countries (Germany, India, Switzerland, USA).</p>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
     <div class="maps"><div><div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div><p class="mapcap">World</p></div>
       <div><div id="eumap" role="img" aria-label="Map of Switzerland and southern Germany with numbered conference markers"></div><p class="mapcap">Switzerland &amp; Germany</p></div></div>
     <p class="legend"><span class="num talk">#</span> talk (3) &nbsp; <span class="num poster">#</span> poster (4) &nbsp;·&nbsp; numbers match the list below</p>
@@ -64,6 +64,7 @@
         }
         var w = mk('confmap', {worldCopyJump: true}); w[0].fitBounds(w[1], {padding: [30, 30]});
         var e = mk('eumap', {}); e[0].fitBounds([[46.3, 6.3], [49.3, 8.9]], {padding: [20, 20]});
+        document.querySelector('.maps').classList.add('ready');
       })();
     </script>
   </div>

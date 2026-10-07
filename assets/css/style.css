@@ -205,3 +205,5 @@ h2.group { margin: 36px 0 16px; padding-bottom: 6px; border-bottom: 2px solid va
 .maps #confmap, .maps #eumap { height: 420px; margin: 0; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 0; }
 .mapcap { text-align: center; font-size: 13px; color: var(--muted); margin: 6px 0 0; }
 @media (max-width: 760px) { .maps { grid-template-columns: 1fr; } .maps #confmap, .maps #eumap { height: 320px; } }
+.maps #confmap, .maps #eumap { overflow: hidden; }
+.maps:not(.ready) #confmap > *, .maps:not(.ready) #eumap > * { visibility: hidden; }

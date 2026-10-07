@@ -12,7 +12,7 @@ import math
 EUSTARS = "".join(f'<circle cx="{15 + 6 * math.sin(2 * math.pi * k / 12):.2f}" cy="{10 - 6 * math.cos(2 * math.pi * k / 12):.2f}" r="0.9"/>' for k in range(12))
 
 
-def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg"):
+def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg", head=""):
     up = "../" * path.count("/")
     nav = "\n".join(
         f'      <a{" class=\"active\"" if href == path or (href.startswith("research/") and path.startswith("research/")) else ""} href="{up}{href}">{name}</a>'
@@ -32,7 +32,7 @@ def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg"):
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://venuagarwal.com/{"" if path == "index.html" else path}">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7490'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EVA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="{up}assets/css/style.css?v={CSSV}">
+  <link rel="stylesheet" href="{up}assets/css/style.css?v={CSSV}">{head}
 </head>
 <body>
 <header class="site">
@@ -338,7 +338,6 @@ _rows = chr(10).join(
 _ntalk = sum(c[1] != "Poster" for c in CONF)
 page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="page">Conferences</h1>
     <p class="section-sub lead">Talks and posters presented for scientific exchange: {len(CONF)} contributions in {len(_countries)} countries ({", ".join(_countries)}).</p>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
     <div class="maps"><div><div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div><p class="mapcap">World</p></div>
       <div><div id="eumap" role="img" aria-label="Map of Switzerland and southern Germany with numbered conference markers"></div><p class="mapcap">Switzerland &amp; Germany</p></div></div>
     <p class="legend"><span class="num talk">#</span> talk ({_ntalk}) &nbsp; <span class="num poster">#</span> poster ({len(CONF) - _ntalk}) &nbsp;·&nbsp; numbers match the list below</p>
@@ -364,8 +363,9 @@ page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="
         }}
         var w = mk('confmap', {{worldCopyJump: true}}); w[0].fitBounds(w[1], {{padding: [30, 30]}});
         var e = mk('eumap', {{}}); e[0].fitBounds([[46.3, 6.3], [49.3, 8.9]], {{padding: [20, 20]}});
+        document.querySelector('.maps').classList.add('ready');
       }})();
-    </script>""", desc="Conference talks and posters by Venu Gopal Agarwal, shown on a world map.")
+    </script>""", desc="Conference talks and posters by Venu Gopal Agarwal, shown on a world map.", head='\n  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">')
 
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
