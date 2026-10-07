@@ -246,7 +246,7 @@ page("index.html", "Venu Gopal Agarwal — CO2 electrolysis modelling, EPFL", f"
         <div class="stat"><b>PhD, EPFL</b><span>Energy Sciences, 2026</span></div>
         <div class="stat"><b>MSCA fellow</b><span>EPFLglobaLeaders, Horizon 2020</span></div>
         <div class="stat"><b>Gold Medal</b><span>M.S. (R), IIT Delhi</span></div>
-        <div class="stat"><b>7 conference talks &amp; posters</b><span>ECS, ModVal, SCS</span></div>
+        <div class="stat"><b>7 conference talks &amp; posters</b><span>ECS, ModVal, SCS, PSI</span></div>
       </div>
     </div>
   </section>
@@ -277,14 +277,14 @@ TALKS = [  # (meeting, type, title, authors, link) - SNSF report, M.S. defence s
      "<b>V. G. Agarwal</b>, P. Brimley, S. Haussener", "https://events.hs-offenburg.de/event/471/attachments/76/359/ModVal%202025%20Book%20of%20Abstracts.pdf#page=76"),
     ("245th ECS Meeting, San Francisco, 28 May 2024", "Talk", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis application",
      "<b>V. Agarwal</b>, S. Haussener", "https://doi.org/10.1149/MA2024-01372167mtgabs"),
-    ("ModVal 2023, Duisburg, 21–23 Mar 2023", "Poster", "2D model-based performance analysis of a CO<sub>2</sub> electrolyzer with a gas-diffusion electrode",
-     "<b>V. Agarwal</b>, S. Haussener", ""),
+    ("39th Swiss Electrochemistry Symposium (PSI), Aarau, 26 Apr 2023", "Poster", "Modelling of a gas-diffusion electrode for CO<sub>2</sub> electroreduction",
+     "<b>V. Agarwal</b>, S. Haussener", "https://indico.psi.ch/event/13425/"),
     ("28th DSFD, JNCASR Bangalore, 22–26 Jul 2019", "Talk", "Droplet formation at a T-junction microchannel using a shear-thinning continuous phase",
      "<b>V. G. Agarwal</b>, R. Singh, A. Gupta", ""),
     ("COMPFLU 2018, IIT Roorkee, 6–9 Dec 2018", "Talk", "Towards an understanding of electrohydrodynamic and non-Newtonian effects in T-junction microfluidic devices",
      "A. Gupta, R. Singh, <b>V. G. Agarwal</b>", "https://www.iitr.ac.in/compflu2018/docs/COMPFLU_2018_Detailed_Program_Schedule.pdf#page=4"),
 ]
-LINKTXT = {"doi.org/10.5281": "Proceedings (Zenodo)", "doi.org/10.1149": "Abstract", "hs-offenburg": "Abstract", "scg.ch": "Meeting page", "iitr.ac.in": "Programme"}
+LINKTXT = {"doi.org/10.5281": "Proceedings (Zenodo)", "doi.org/10.1149": "Abstract", "hs-offenburg": "Abstract", "scg.ch": "Meeting page", "iitr.ac.in": "Programme", "indico.psi.ch": "Programme"}
 
 
 def talk(m, k, t, a, u):
