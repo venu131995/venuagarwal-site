@@ -263,24 +263,34 @@ PUBS = [
     ("Book chapter, Energy for Propulsion (Springer) · 2018", "Investigation of the role of chemical kinetics in controlling stabilization mechanism of the turbulent lifted jet flame using multi-flamelet generated manifold approach",
      "R. Saini, A. De, <b>V. Agarwal</b>, R. Yadav", "https://doi.org/10.1007/978-981-10-7473-8_12"),
 ]
-TALKS = [  # (meeting, type, title, authors) — from the SNSF report and the M.S. defence slides
-    ("ModVal 2026", "Poster", "Mass transport limitations in a BPM-based bicarbonate-fed CO<sub>2</sub>-to-CO electrolyzer",
-     "<b>V. Agarwal</b>, N. Wanninayake, S. Shah, M. Shahar, A. Smeltz, S. Haussener"),
-    ("Electrocatalysis Conference 2025", "Poster", "Performance comparison between forward- and reverse-biased bipolar membranes for CO<sub>2</sub> electrolysis",
-     "<b>V. Agarwal</b>, P. Brimley, S. Haussener"),
-    ("ModVal 2025", "Poster", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis",
-     "<b>V. Agarwal</b>, P. Brimley, S. Haussener"),
-    ("245th ECS Meeting, 2024", "Invited talk", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis application",
-     "<b>V. Agarwal</b>, S. Haussener · ECS Meeting Abstracts 245, 2167"),
-    ("ModVal 2023", "Poster", "2D model-based performance analysis of a CO<sub>2</sub> electrolyzer with a gas-diffusion electrode",
-     "<b>V. Agarwal</b>, S. Haussener"),
-    ("28th DSFD, JNCASR Bangalore, July 2019", "Talk", "Droplet formation at a T-junction microchannel using a shear-thinning continuous phase",
-     "<b>V. G. Agarwal</b>, R. Singh, A. Gupta"),
-    ("Complex Fluids and Soft Matter, IIT Roorkee, Dec 2018", "Talk", "Towards an understanding of electrohydrodynamic and non-Newtonian effects in T-junction microfluidic devices",
-     "A. Gupta, R. Singh, <b>V. G. Agarwal</b>"),
+TALKS = [  # (meeting, type, title, authors, link) - SNSF report, M.S. defence slides, official programmes/abstract books
+    ("ModVal 2026, Lausanne, 10–11 Mar 2026", "Poster", "Model-based optimization of cathode architecture and bipolar membrane properties in bicarbonate-fed CO<sub>2</sub> electrolyzers",
+     "<b>V. Agarwal</b>, N. Wanninayake, S. Shah, M. Shahar, A. Smeltz, S. Haussener", "https://doi.org/10.5281/zenodo.18980448"),
+    ("SCS Spring Meeting “Electrocatalysis”, Bern, 24 Apr 2025", "Poster", "Performance comparison between forward- and reverse-biased bipolar membranes for CO<sub>2</sub> electrolysis",
+     "<b>V. Agarwal</b>, P. Brimley, S. Haussener", "https://scg.ch/component/eventbooking/scs-spring-meeting-2025-electrocatalysis-current-challenges-and-future-perspectives"),
+    ("ModVal 2025, Karlsruhe, 11–12 Mar 2025", "Poster", "Modelling water transport in bipolar membranes for CO<sub>2</sub> electrolysis application",
+     "<b>V. G. Agarwal</b>, P. Brimley, S. Haussener", "https://events.hs-offenburg.de/event/471/attachments/76/359/ModVal%202025%20Book%20of%20Abstracts.pdf#page=76"),
+    ("245th ECS Meeting, San Francisco, May 2024", "Invited talk", "Water transport management in a bipolar membrane for CO<sub>2</sub> electrolysis application",
+     "<b>V. Agarwal</b>, S. Haussener", "https://doi.org/10.1149/MA2024-01372167mtgabs"),
+    ("ModVal 2023, Duisburg, 21–23 Mar 2023", "Poster", "2D model-based performance analysis of a CO<sub>2</sub> electrolyzer with a gas-diffusion electrode",
+     "<b>V. Agarwal</b>, S. Haussener", ""),
+    ("28th DSFD, JNCASR Bangalore, 22–26 Jul 2019", "Talk", "Droplet formation at a T-junction microchannel using a shear-thinning continuous phase",
+     "<b>V. G. Agarwal</b>, R. Singh, A. Gupta", ""),
+    ("COMPFLU 2018, IIT Roorkee, 6–9 Dec 2018", "Talk", "Towards an understanding of electrohydrodynamic and non-Newtonian effects in T-junction microfluidic devices",
+     "A. Gupta, R. Singh, <b>V. G. Agarwal</b>", "https://www.iitr.ac.in/compflu2018/docs/COMPFLU_2018_Detailed_Program_Schedule.pdf#page=4"),
 ]
-talks = "\n".join(f'    <div class="pub"><span class="venue{" alt" if k == "Poster" else ""}">{k} · {m}</span><p class="title">{t}</p><p class="authors">{a}</p></div>'
-                  for m, k, t, a in TALKS)
+LINKTXT = {"doi.org/10.5281": "Proceedings (Zenodo)", "doi.org/10.1149": "Abstract", "hs-offenburg": "Abstract", "scg.ch": "Meeting page", "iitr.ac.in": "Programme"}
+
+
+def talk(m, k, t, a, u):
+    lt = next((v for key, v in LINKTXT.items() if key in u), "Link")
+    link = f' · <a href="{u}">{lt} ↗</a>' if u else ""
+    return (f'    <div class="pub"><span class="venue{" alt" if k == "Poster" else ""}">{k}</span> <span class="muted">{m}</span>'
+            f'<p class="title">{t}</p><p class="authors">{a}{link}</p></div>')
+
+
+talks = chr(10).join(talk(*x) for x in TALKS)
+
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
     <p class="section-sub">Peer-reviewed articles.</p>
