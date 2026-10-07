@@ -378,9 +378,7 @@ page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class
       <div class="card"><h3>Bicarbonate-fed CO<sub>2</sub>-to-CO electrolysers</h3><p>Design and optimisation of bipolar-membrane bicarbonate electrolysers.</p><span class="tag">manuscript</span></div>
       <div class="card"><h3>Flooding and salt in zero-gap electrolysers</h3><p>Mechanisms and mitigation of degradation over time.</p><span class="tag">manuscript</span></div>
     </div>
-    <h2 style="margin-top:40px">Talks and posters</h2>
-{talks}
-    <p class="muted" style="margin-top:14px">Best poster award, IIT Kanpur, 2017.</p>""")
+    <p class="muted" style="margin-top:28px">Talks and posters are listed on the <a href="conferences.html">Conferences</a> page.</p>""")
 
 page("cv.html", "CV | Venu Gopal Agarwal", """    <h1 class="page">Curriculum vitae</h1>
     <p><a class="btn primary" href="assets/cv/Venu_Gopal_Agarwal_CV.pdf">Download CV (PDF)</a></p>
