@@ -217,10 +217,17 @@ for p in PROJECTS:
       <div class="note">{foot}</div>
     </div>{EXTRA.get(fn, "")}""", desc=plain, img=OGIMG.get(fn, "assets/img/profile.jpg"))
 
+CURRENT = ("crutches.html", "bicarbonate.html")
 page("research/index.html", "Research | Venu Gopal Agarwal", f"""    <h1 class="page">Research</h1>
     <p class="section-sub lead">Physics-based models of electrochemical energy-conversion devices — coupled, nonlinear transport of charge, species, water, heat and momentum — validated against experiments to find what limits performance and lifetime.</p>
+    <p class="jump"><a href="#current">Current projects ({len(CURRENT)})</a> · <a href="#completed">Completed projects ({len(PROJECTS) - len(CURRENT)})</a></p>
+    <h2 id="current" class="group">Current projects</h2>
     <div class="cards">
-{chr(10).join(card(p) for p in PROJECTS)}
+{chr(10).join(card(p) for p in PROJECTS if p[0] in CURRENT)}
+    </div>
+    <h2 id="completed" class="group">Completed projects</h2>
+    <div class="cards">
+{chr(10).join(card(p) for p in PROJECTS if p[0] not in CURRENT)}
     </div>""")
 
 IMG = os.path.exists(os.path.join(ROOT, "assets/img/profile.jpg"))

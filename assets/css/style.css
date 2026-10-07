@@ -178,3 +178,5 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 .eu svg { flex: none; border-radius: 2px; }
 .news { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 30px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent-2); border-radius: 10px; padding: 10px 14px; font-size: 15px; }
 .news-tag { background: var(--accent-2); color: #1b2330; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; border-radius: 6px; padding: 2px 8px; }
+.jump { font-weight: 600; margin: 4px 0 8px; }
+h2.group { margin: 36px 0 16px; padding-bottom: 6px; border-bottom: 2px solid var(--line); scroll-margin-top: 80px; }
