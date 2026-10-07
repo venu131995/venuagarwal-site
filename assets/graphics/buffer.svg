@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="edl" x1="0" x2="1"><stop offset="0" stop-color="#fb923c" stop-opacity=".55"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></linearGradient>
+    <g id="hp"><circle r="6.5" fill="#ef4444"/><text y="3.8" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">H⁺</text></g>
+    <g id="a"><circle r="6.5" fill="#16a34a"/><text y="3.6" font-size="8.5" font-weight="700" fill="#fff" text-anchor="middle">A⁻</text></g>
+    <g id="ha"><circle cx="-5" r="6.5" fill="#16a34a"/><circle cx="6" r="5" fill="#ef4444"/></g>
+  </defs>
+  <rect width="640" height="360" rx="18" fill="#f8fafc"/>
+  <text x="320" y="34" font-size="17" font-weight="700" fill="#1b2330" text-anchor="middle">Interfacial fields split buffer molecules and feed H₂ evolution</text>
+
+  <rect x="40" y="60" width="44" height="220" fill="#475569"/>
+  <rect x="84" y="60" width="250" height="220" fill="url(#edl)"/>
+  <rect x="84" y="60" width="526" height="220" fill="none" stroke="#e2e8f0"/>
+  <line x1="102" y1="60" x2="102" y2="280" stroke="#94a3b8" stroke-dasharray="4 4"/>
+  <!-- field arrows, stronger near the electrode -->
+  <g stroke="#ea580c" stroke-width="2.4" fill="#ea580c">
+    <path d="M200 95 H96"/><path d="M96 95 l9 -5 v10z"/>
+    <path d="M170 175 H96"/><path d="M96 175 l9 -5 v10z"/>
+    <path d="M200 255 H96"/><path d="M96 255 l9 -5 v10z"/>
+    <path d="M300 135 H230" stroke-width="1.4"/><path d="M230 135 l7 -4 v8z"/>
+    <path d="M300 215 H230" stroke-width="1.4"/><path d="M230 215 l7 -4 v8z"/>
+  </g>
+
+  <!-- buffer molecules diffuse in, dissociate, H+ is consumed -->
+  <use href="#ha"><animateMotion path="M590,120 L180,120" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.62;.66;1" dur="3s" repeatCount="indefinite"/></use>
+  <use href="#hp" opacity="0"><animateMotion path="M180,120 L92,120 L92,120" keyTimes="0;.62;1" keyPoints="0;0;1" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.62;.66;.95;1" dur="3s" repeatCount="indefinite"/></use>
+  <use href="#a" opacity="0"><animateMotion path="M180,120 L420,150" keyTimes="0;.62;1" keyPoints="0;0;1" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.62;.66;.95;1" dur="3s" repeatCount="indefinite"/></use>
+
+  <use href="#ha"><animateMotion path="M590,225 L170,225" dur="3.4s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.62;.66;1" dur="3.4s" begin="-1.4s" repeatCount="indefinite"/></use>
+  <use href="#hp" opacity="0"><animateMotion path="M170,225 L92,225" keyTimes="0;.62;1" keyPoints="0;0;1" dur="3.4s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.62;.66;.95;1" dur="3.4s" begin="-1.4s" repeatCount="indefinite"/></use>
+  <use href="#a" opacity="0"><animateMotion path="M170,225 L430,200" keyTimes="0;.62;1" keyPoints="0;0;1" dur="3.4s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.62;.66;.95;1" dur="3.4s" begin="-1.4s" repeatCount="indefinite"/></use>
+
+  <!-- H2 bubbles leaving the electrode -->
+  <g fill="none" stroke="#0e7490" stroke-width="1.8">
+    <circle cx="94" r="6"><animate attributeName="cy" values="270;66" dur="2.6s" repeatCount="indefinite"/></circle>
+    <circle cx="96" r="4"><animate attributeName="cy" values="270;66" dur="3.1s" begin="-1s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- inset: proton concentration -->
+  <g transform="translate(440 70)">
+    <rect width="160" height="92" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="10" y="18" font-size="11" font-weight="700" fill="#1b2330">free H⁺ near the surface</text>
+    <line x1="14" y1="78" x2="150" y2="78" stroke="#94a3b8"/><line x1="14" y1="78" x2="14" y2="26" stroke="#94a3b8"/>
+    <path d="M16 30 C40 50 60 64 150 66" fill="none" stroke="#ef4444" stroke-width="2.4"/>
+    <line x1="14" y1="66" x2="150" y2="66" stroke="#64748b" stroke-dasharray="4 3"/>
+    <text x="104" y="61" font-size="9.5" fill="#64748b">bulk</text>
+    <text x="82" y="89" font-size="9.5" fill="#64748b" text-anchor="middle">distance from electrode</text>
+  </g>
+
+  <g font-size="12.5" font-weight="700" fill="#1b2330" text-anchor="middle">
+    <text x="62" y="300">Electrode</text><text x="62" y="315" font-weight="500" fill="#5d6878">H₂ evolution</text>
+    <text x="210" y="300">Electrical double layer</text><text x="210" y="315" font-weight="500" fill="#5d6878">strong field: HA → H⁺ + A⁻</text>
+    <text x="470" y="300">Bulk electrolyte</text><text x="470" y="315" font-weight="500" fill="#5d6878">carbonate / phosphate buffer</text>
+  </g>
+  <g font-size="12" fill="#1b2330" transform="translate(150 342)">
+    <use href="#ha" x="8" y="-4"/><text x="24" y="0">buffer HA</text>
+    <use href="#hp" x="110" y="-4"/><text x="122" y="0">free proton</text>
+    <use href="#a" x="220" y="-4"/><text x="232" y="0">conjugate base</text>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="glow"><stop offset="0" stop-color="#facc15" stop-opacity=".95"/><stop offset="1" stop-color="#facc15" stop-opacity="0"/></radialGradient>
+    <g id="hp"><circle r="7" fill="#ef4444"/><text y="4" font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">H⁺</text></g>
+    <g id="oh"><circle r="7" fill="#2563eb"/><text y="3.8" font-size="8" font-weight="700" fill="#fff" text-anchor="middle">OH⁻</text></g>
+    <g id="w"><circle r="5" fill="#ef4444" fill-opacity=".85"/><circle cx="-5" cy="-4" r="3" fill="#93c5fd"/><circle cx="5" cy="-4" r="3" fill="#93c5fd"/></g>
+  </defs>
+  <rect width="640" height="360" rx="18" fill="#f8fafc"/>
+  <text x="320" y="34" font-size="17" font-weight="700" fill="#1b2330" text-anchor="middle">Bipolar membrane: field-driven water splitting at the junction</text>
+
+  <!-- electric-field profile -->
+  <path d="M60 118 C230 118 270 116 300 92 C312 70 328 70 340 92 C370 116 410 118 580 118" fill="none" stroke="#f59e0b" stroke-width="3"/>
+  <text x="352" y="70" font-size="12.5" font-weight="700" fill="#b45309">electric field  ~10⁸ V m⁻¹</text>
+
+  <rect x="60" y="130" width="260" height="150" fill="#fee2e2"/>
+  <rect x="320" y="130" width="260" height="150" fill="#dbeafe"/>
+  <rect x="290" y="130" width="60" height="150" fill="url(#glow)"><animate attributeName="opacity" values=".35;1;.35" dur="1.4s" repeatCount="indefinite"/></rect>
+  <line x1="320" y1="130" x2="320" y2="280" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <g font-size="15" font-weight="700" fill="#b91c1c" opacity=".55">
+    <text x="85" y="160">−</text><text x="150" y="200">−</text><text x="215" y="160">−</text><text x="110" y="250">−</text><text x="190" y="262">−</text><text x="265" y="215">−</text>
+  </g>
+  <g font-size="15" font-weight="700" fill="#1d4ed8" opacity=".55">
+    <text x="370" y="160">+</text><text x="430" y="210">+</text><text x="505" y="160">+</text><text x="395" y="258">+</text><text x="480" y="262">+</text><text x="550" y="215">+</text>
+  </g>
+
+  <!-- water diffusing in, splitting, ions leaving -->
+  <use href="#w"><animateMotion path="M320,300 L320,205" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.85;1" dur="1.8s" repeatCount="indefinite"/></use>
+  <use href="#w"><animateMotion path="M320,300 L320,175" dur="1.8s" begin="-.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;.85;1" dur="1.8s" begin="-.9s" repeatCount="indefinite"/></use>
+  <use href="#hp"><animateMotion path="M314,205 L75,190" dur="2.6s" repeatCount="indefinite"/></use>
+  <use href="#hp"><animateMotion path="M314,175 L75,240" dur="2.6s" begin="-.9s" repeatCount="indefinite"/></use>
+  <use href="#hp"><animateMotion path="M314,240 L75,155" dur="2.6s" begin="-1.7s" repeatCount="indefinite"/></use>
+  <use href="#oh"><animateMotion path="M326,205 L565,185" dur="2.6s" repeatCount="indefinite"/></use>
+  <use href="#oh"><animateMotion path="M326,175 L565,245" dur="2.6s" begin="-.9s" repeatCount="indefinite"/></use>
+  <use href="#oh"><animateMotion path="M326,240 L565,155" dur="2.6s" begin="-1.7s" repeatCount="indefinite"/></use>
+
+  <g font-size="13" font-weight="700" fill="#1b2330" text-anchor="middle">
+    <text x="190" y="304">Cation-exchange layer</text><text x="190" y="320" font-size="12" font-weight="500" fill="#5d6878">fixed −SO₃⁻ groups · H⁺ to the cathode</text>
+    <text x="450" y="304">Anion-exchange layer</text><text x="450" y="320" font-size="12" font-weight="500" fill="#5d6878">fixed −NR₃⁺ groups · OH⁻ to the anode</text>
+    <text x="320" y="344" font-size="12.5" fill="#b45309">junction: H₂O → H⁺ + OH⁻ (second Wien effect)</text>
+  </g>
+</svg>
