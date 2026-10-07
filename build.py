@@ -339,8 +339,9 @@ _ntalk = sum(c[1] != "Poster" for c in CONF)
 page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="page">Conferences</h1>
     <p class="section-sub lead">Talks and posters presented for scientific exchange: {len(CONF)} contributions in {len(_countries)} countries ({", ".join(_countries)}).</p>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-    <div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div>
-    <p class="legend"><span class="num talk">#</span> talk ({_ntalk}) &nbsp; <span class="num poster">#</span> poster ({len(CONF) - _ntalk}) &nbsp;·&nbsp; numbers match the list below; zoom in on Europe for the Swiss meetings</p>
+    <div class="maps"><div><div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div><p class="mapcap">World</p></div>
+      <div><div id="eumap" role="img" aria-label="Map of Switzerland and southern Germany with numbered conference markers"></div><p class="mapcap">Switzerland &amp; Germany</p></div></div>
+    <p class="legend"><span class="num talk">#</span> talk ({_ntalk}) &nbsp; <span class="num poster">#</span> poster ({len(CONF) - _ntalk}) &nbsp;·&nbsp; numbers match the list below</p>
     <div class="conf-list">
 {_rows}
     </div>
@@ -349,17 +350,20 @@ page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="
     <script>
       (function () {{
         var pts = {_json.dumps(_pts)};
-        var map = L.map('confmap', {{scrollWheelZoom: false, worldCopyJump: true}});
-        L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 18}}).addTo(map);
-        var b = [];
-        pts.forEach(function (p) {{
-          var icon = L.divIcon({{className: '', html: '<span class="num ' + (p.kind === 'Poster' ? 'poster' : 'talk') + '">' + p.n + '</span>', iconSize: [28, 28], iconAnchor: [14, 14]}});
-          L.marker([p.lat, p.lon], {{icon: icon, title: p.n + '. ' + p.meet}}).addTo(map)
-            .bindPopup('<b>' + p.n + '. ' + p.meet + '</b><br>' + p.city + ' · ' + p.kind + '<br><a href="#c' + p.n + '">details ↓</a>');
-          b.push([p.lat, p.lon]);
-        }});
-        map.fitBounds(b, {{padding: [40, 40]}});
+        function mk(id, opts) {{
+          var m = L.map(id, Object.assign({{scrollWheelZoom: false}}, opts));
+          L.tileLayer('https://tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{attribution: '&copy; OpenStreetMap contributors', maxZoom: 18}}).addTo(m);
+          var b = [];
+          pts.forEach(function (p) {{
+            var icon = L.divIcon({{className: '', html: '<span class="num ' + (p.kind === 'Poster' ? 'poster' : 'talk') + '">' + p.n + '</span>', iconSize: [28, 28], iconAnchor: [14, 14]}});
+            L.marker([p.lat, p.lon], {{icon: icon, title: p.n + '. ' + p.meet}}).addTo(m)
+              .bindPopup('<b>' + p.n + '. ' + p.meet + '</b><br>' + p.city + ' · ' + p.kind + '<br><a href="#c' + p.n + '">details ↓</a>');
+            b.push([p.lat, p.lon]);
+          }});
+          return [m, b];
+        }}
+        var w = mk('confmap', {{worldCopyJump: true}}); w[0].fitBounds(w[1], {{padding: [30, 30]}});
+        var e = mk('eumap', {{}}); e[0].fitBounds([[46.3, 6.3], [49.3, 8.9]], {{padding: [20, 20]}});
       }})();
     </script>""", desc="Conference talks and posters by Venu Gopal Agarwal, shown on a world map.")
 

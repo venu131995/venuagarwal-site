@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://venuagarwal.com/conferences.html">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7490'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EVA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=72433cbe">
+  <link rel="stylesheet" href="assets/css/style.css?v=7d8431b2">
 </head>
 <body>
 <header class="site">
@@ -33,8 +33,9 @@
     <h1 class="page">Conferences</h1>
     <p class="section-sub lead">Talks and posters presented for scientific exchange: 7 contributions in 4 countries (Germany, India, Switzerland, USA).</p>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-    <div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div>
-    <p class="legend"><span class="num talk">#</span> talk (3) &nbsp; <span class="num poster">#</span> poster (4) &nbsp;·&nbsp; numbers match the list below; zoom in on Europe for the Swiss meetings</p>
+    <div class="maps"><div><div id="confmap" role="img" aria-label="World map with numbered markers at each conference venue"></div><p class="mapcap">World</p></div>
+      <div><div id="eumap" role="img" aria-label="Map of Switzerland and southern Germany with numbered conference markers"></div><p class="mapcap">Switzerland &amp; Germany</p></div></div>
+    <p class="legend"><span class="num talk">#</span> talk (3) &nbsp; <span class="num poster">#</span> poster (4) &nbsp;·&nbsp; numbers match the list below</p>
     <div class="conf-list">
     <div class="pub conf-item" id="c1"><span class="num talk">1</span><div><span class="venue">Talk</span> <span class="muted">COMPFLU 2018, IIT Roorkee, 6–9 Dec 2018</span><p class="title">Towards an understanding of electrohydrodynamic and non-Newtonian effects in T-junction microfluidic devices</p><p class="authors">A. Gupta, R. Singh, <b>V. G. Agarwal</b> · <a href="https://www.iitr.ac.in/compflu2018/docs/COMPFLU_2018_Detailed_Program_Schedule.pdf#page=4">Programme ↗</a></p></div></div>
     <div class="pub conf-item" id="c2"><span class="num talk">2</span><div><span class="venue">Talk</span> <span class="muted">28th DSFD, JNCASR Bangalore, 22–26 Jul 2019</span><p class="title">Droplet formation at a T-junction microchannel using a shear-thinning continuous phase</p><p class="authors"><b>V. G. Agarwal</b>, R. Singh, A. Gupta</p></div></div>
@@ -49,17 +50,20 @@
     <script>
       (function () {
         var pts = [{"n": 1, "lat": 29.8649, "lon": 77.8966, "city": "Roorkee", "kind": "Talk", "meet": "COMPFLU 2018"}, {"n": 2, "lat": 13.071, "lon": 77.595, "city": "Bengaluru", "kind": "Talk", "meet": "28th DSFD"}, {"n": 3, "lat": 47.3925, "lon": 8.0444, "city": "Aarau", "kind": "Poster", "meet": "39th Swiss Electrochemistry Symposium (PSI)"}, {"n": 4, "lat": 37.7849, "lon": -122.4036, "city": "San Francisco", "kind": "Talk", "meet": "245th ECS Meeting"}, {"n": 5, "lat": 49.0069, "lon": 8.4037, "city": "Karlsruhe", "kind": "Poster", "meet": "ModVal 2025"}, {"n": 6, "lat": 46.951, "lon": 7.4386, "city": "Bern", "kind": "Poster", "meet": "SCS Spring Meeting \u201cElectrocatalysis\u201d"}, {"n": 7, "lat": 46.5089, "lon": 6.6348, "city": "Lausanne", "kind": "Poster", "meet": "ModVal 2026"}];
-        var map = L.map('confmap', {scrollWheelZoom: false, worldCopyJump: true});
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 18}).addTo(map);
-        var b = [];
-        pts.forEach(function (p) {
-          var icon = L.divIcon({className: '', html: '<span class="num ' + (p.kind === 'Poster' ? 'poster' : 'talk') + '">' + p.n + '</span>', iconSize: [28, 28], iconAnchor: [14, 14]});
-          L.marker([p.lat, p.lon], {icon: icon, title: p.n + '. ' + p.meet}).addTo(map)
-            .bindPopup('<b>' + p.n + '. ' + p.meet + '</b><br>' + p.city + ' · ' + p.kind + '<br><a href="#c' + p.n + '">details ↓</a>');
-          b.push([p.lat, p.lon]);
-        });
-        map.fitBounds(b, {padding: [40, 40]});
+        function mk(id, opts) {
+          var m = L.map(id, Object.assign({scrollWheelZoom: false}, opts));
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors', maxZoom: 18}).addTo(m);
+          var b = [];
+          pts.forEach(function (p) {
+            var icon = L.divIcon({className: '', html: '<span class="num ' + (p.kind === 'Poster' ? 'poster' : 'talk') + '">' + p.n + '</span>', iconSize: [28, 28], iconAnchor: [14, 14]});
+            L.marker([p.lat, p.lon], {icon: icon, title: p.n + '. ' + p.meet}).addTo(m)
+              .bindPopup('<b>' + p.n + '. ' + p.meet + '</b><br>' + p.city + ' · ' + p.kind + '<br><a href="#c' + p.n + '">details ↓</a>');
+            b.push([p.lat, p.lon]);
+          });
+          return [m, b];
+        }
+        var w = mk('confmap', {worldCopyJump: true}); w[0].fitBounds(w[1], {padding: [30, 30]});
+        var e = mk('eumap', {}); e[0].fitBounds([[46.3, 6.3], [49.3, 8.9]], {padding: [20, 20]});
       })();
     </script>
   </div>

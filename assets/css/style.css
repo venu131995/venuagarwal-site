@@ -201,3 +201,7 @@ h2.group { margin: 36px 0 16px; padding-bottom: 6px; border-bottom: 2px solid va
 .conf-item { display: flex; gap: 14px; align-items: flex-start; scroll-margin-top: 80px; }
 .conf-item:target { border-color: var(--accent); }
 @media (max-width: 600px) { #confmap { height: 340px; } }
+.maps { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin: 18px 0 6px; }
+.maps #confmap, .maps #eumap { height: 420px; margin: 0; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); z-index: 0; }
+.mapcap { text-align: center; font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+@media (max-width: 760px) { .maps { grid-template-columns: 1fr; } .maps #confmap, .maps #eumap { height: 320px; } }
