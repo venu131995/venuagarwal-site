@@ -73,7 +73,7 @@ PROJECTS = [
       "Validated against measured CO faradaic efficiencies.",
       "Used the model to evaluate catalyst-layer, substrate and membrane designs."],
      "Supervisor: Prof. Sophia Haussener.<br>Funded by the Swiss National Science Foundation, project <a href=\"https://data.snf.ch/grants/grant/197268\">200021_197268</a> “Overcoming fluid transport limitations in gas-fed CO<sub>2</sub> reduction devices with bipolar membranes” (PSI and EPFL, 2021–2026)."),
-    ("bpm.html", "⚡", "Bipolar membrane modelling", "PhD · 2021 – 2026", "in preparation",
+    ("bpm.html", "⚡", "Bipolar membrane modelling", "PhD · 2021 – 2026", "manuscript under review",
      "Bipolar membranes split water at the junction between a cation- and an anion-exchange layer, driven by strong local electric fields.",
      ["One-dimensional Poisson–Nernst–Planck model with electric-field-enhanced (second Wien effect) water dissociation.",
       "Hydration-dependent transport and membrane water balance.",
@@ -172,7 +172,7 @@ KEY = {
         "Results are in a manuscript in preparation."]),
     "bpm.html": ("Approach", [
         "Resolves the space-charge region at the junction, where fields of order 10<sup>8</sup> V m<sup>−1</sup> accelerate water dissociation.",
-        "Results are in a manuscript in preparation."]),
+        "Manuscript under review: “Water transport limitations in bipolar membranes for electrochemical CO<sub>2</sub> reduction”, V. G. Agarwal and S. Haussener."]),
 }
 FIG = {
     "crutches.html": ("assets/graphics/crutches.svg", "Schematic of the modelled zero-gap cell: CO<sub>2</sub> diffuses through the GDL and MPL to the Ag catalyst layer, while liquid water, (bi)carbonate salt and Cs<sup>+</sup> crossing the membrane accumulate in the cathode."),
@@ -301,10 +301,11 @@ pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
     <p class="section-sub">Peer-reviewed articles.</p>
 {pubs}
+    <h2 style="margin-top:40px">Under review</h2>
+    <div class="pub"><span class="venue alt">Under review</span><p class="title">Water transport limitations in bipolar membranes for electrochemical CO<sub>2</sub> reduction</p><p class="authors"><b>V. G. Agarwal</b>, S. Haussener</p></div>
     <h2 style="margin-top:40px">In preparation</h2>
     <div class="cards">
       <div class="card"><h3>Bicarbonate-fed CO<sub>2</sub>-to-CO electrolysers</h3><p>Design and optimisation of bipolar-membrane bicarbonate electrolysers.</p><span class="tag">manuscript</span></div>
-      <div class="card"><h3>Bipolar membrane modelling</h3><p>Field-enhanced water dissociation and ion transport.</p><span class="tag">manuscript</span></div>
       <div class="card"><h3>Flooding and salt in zero-gap electrolysers</h3><p>Mechanisms and mitigation of degradation over time.</p><span class="tag">manuscript</span></div>
     </div>
     <h2 style="margin-top:40px">Talks and posters</h2>
