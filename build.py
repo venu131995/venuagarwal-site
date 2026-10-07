@@ -325,6 +325,12 @@ page("cv.html", "CV | Venu Gopal Agarwal", """    <h1 class="page">Curriculum vi
       <div class="item"><div class="when">2018 – 2019</div><div class="what">M.S. (R) Thermal Engineering · IIT Delhi</div><div>GPA 10/10, Gold Medal</div></div>
       <div class="item"><div class="when">2013 – 2017</div><div class="what">B.Tech. Mechanical Engineering · IIT Gandhinagar</div><div>GPA 8.8/10</div></div>
     </div>
+    <h2>Teaching &amp; supervision</h2>
+    <div class="timeline">
+      <div class="item"><div class="when">Autumn 2021, 2023, 2025</div><div class="what">Teaching assistant · Solar Energy Conversion Devices and Plants (ME-468), EPFL</div><div>Graduate course on solar fuels (photoelectrochemistry, photocatalysis, solar thermochemistry), solar electricity (PV and concentrated solar power) and solar heat, with computational and laboratory projects.</div></div>
+      <div class="item"><div class="when">Spring 2023</div><div class="what">Teaching assistant · Advanced Heat Transfer (ME-465), EPFL</div><div>Graduate course on radiative, conductive and convective heat transfer, with emphasis on Monte Carlo and other computational methods for coupled problems.</div></div>
+      <div class="item"><div class="when">Feb – May 2023</div><div class="what">Supervisor · Master's semester project, LRESE, EPFL</div><div>“Modeling planar electrodes for CO<sub>2</sub> electro-reduction: comparing 1D and 2D models”: 1D Nernst–Planck and 2D Navier–Stokes / convective-transport COMSOL models of planar CO<sub>2</sub>-reduction electrodes.</div></div>
+    </div>
     <h2>Awards</h2>
     <div class="timeline">
       <div class="item"><div class="when">2021</div><div class="what">EPFLglobaLeaders doctoral fellowship</div><div>Marie Skłodowska-Curie, Horizon 2020</div></div>
