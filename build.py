@@ -196,6 +196,8 @@ PUBS = [
      "<b>V. G. Agarwal</b>, S. Haussener", "https://doi.org/10.1038/s42004-024-01122-5"),
     ("Physical Review Fluids · 2020", "Dynamics of droplet formation and flow regime transition in a T-shaped microfluidic device",
      "<b>V. G. Agarwal</b>, R. Singh, S. S. Bahga, A. Gupta", "https://doi.org/10.1103/PhysRevFluids.5.044203"),
+    ("Book chapter, Energy for Propulsion (Springer) · 2018", "Investigation of the role of chemical kinetics in controlling stabilization mechanism of the turbulent lifted jet flame using multi-flamelet generated manifold approach",
+     "R. Saini, A. De, <b>V. Agarwal</b>, R. Yadav", "https://doi.org/10.1007/978-981-10-7473-8_12"),
 ]
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
