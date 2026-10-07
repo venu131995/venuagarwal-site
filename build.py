@@ -120,7 +120,7 @@ def card(p):
     top = f'<img class="thumb" src="{{up}}{THUMB[fn]}" alt="Illustration: {t.replace('<sub>', '').replace('</sub>', '')}" loading="lazy">' if fn in THUMB else f'<div class="icon">{icon}</div>'
     return (f'      <a class="card" href="{{up}}research/{fn}">\n        {top}\n'
             f'        <h3>{t}</h3>\n        <p>{short}</p>\n        {tagh}'
-            + (f'\n        <span class="fund">Funding: {FUND[fn]}</span>' if fn in FUND else '') + '\n      </a>')
+            + '\n      </a>')
 
 
 EXTRA = {
