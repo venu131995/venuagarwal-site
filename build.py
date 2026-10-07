@@ -47,7 +47,7 @@ def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg"):
 {inner.replace('{up}', up)}
 </main>
 <footer>
-  <div class="wrap eu"><svg viewBox="0 0 30 20" width="36" height="24" aria-label="Flag of the European Union" role="img"><rect width="30" height="20" fill="#003399"/><g fill="#FFCC00">{EUSTARS}</g></svg><span>PhD research funded by the EPFLglobaLeaders programme, which received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 945363.</span></div>
+  <div class="wrap eu"><svg viewBox="0 0 30 20" width="36" height="24" aria-label="Flag of the European Union" role="img"><rect width="30" height="20" fill="#003399"/><g fill="#FFCC00">{EUSTARS}</g></svg><span>PhD research funded by the EPFLglobaLeaders programme, which received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 945363, and by the Swiss National Science Foundation (project <a href="https://data.snf.ch/grants/grant/197268">200021_197268</a>).</span></div>
   <div class="wrap"><span>© 2026 Venu Gopal Agarwal</span><span><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Scholar</a> · <a href="https://orcid.org/0000-0003-2992-6539">ORCID</a> · <a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a> · LRESE, EPFL</span></div>
 </footer>
 </body>
@@ -72,13 +72,13 @@ PROJECTS = [
      ["Coupled the gas-diffusion-electrode and bipolar-membrane models into one integrated electrolyser model linking electrochemistry, ion transport and water management.",
       "Validated against measured CO faradaic efficiencies.",
       "Used the model to evaluate catalyst-layer, substrate and membrane designs."],
-     "Supervisor: Prof. Sophia Haussener."),
+     "Supervisor: Prof. Sophia Haussener.<br>Funded by the Swiss National Science Foundation, project <a href=\"https://data.snf.ch/grants/grant/197268\">200021_197268</a> “Overcoming fluid transport limitations in gas-fed CO<sub>2</sub> reduction devices with bipolar membranes” (PSI and EPFL, 2021–2026)."),
     ("bpm.html", "⚡", "Bipolar membrane modelling", "PhD · 2021 – 2026", "in preparation",
      "Bipolar membranes split water at the junction between a cation- and an anion-exchange layer, driven by strong local electric fields.",
      ["One-dimensional Poisson–Nernst–Planck model with electric-field-enhanced (second Wien effect) water dissociation.",
       "Hydration-dependent transport and membrane water balance.",
       "Parametric and sensitivity studies to isolate rate-limiting transport mechanisms and guide membrane design."],
-     "Supervisor: Prof. Sophia Haussener."),
+     "Supervisor: Prof. Sophia Haussener.<br>Funded by the Swiss National Science Foundation, project <a href=\"https://data.snf.ch/grants/grant/197268\">200021_197268</a> “Overcoming fluid transport limitations in gas-fed CO<sub>2</sub> reduction devices with bipolar membranes” (PSI and EPFL, 2021–2026)."),
     ("microfluidic-gde.html", "🔬", "Mass-transport limits in a microfluidic GDE electrolyser", "PhD", "Communications Chemistry · 2024",
      "Gas diffusion electrodes deliver CO<sub>2</sub> to the catalyst in the gas phase, but performance is still set by how fast reactants and products move through the porous layers and electrolyte.",
      ["Two-dimensional model of a gas-diffusion cathode in a microfluidic flow cell, resolving coupled charge, species and momentum transport.",
