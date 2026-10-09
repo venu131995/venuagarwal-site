@@ -23,6 +23,8 @@ def page(path, title, body, desc=DESC, raw=False, img="assets/img/profile.jpg", 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://cdnjs.cloudflare.com; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{title}</title>
   <meta name="description" content="{desc}">
   <meta property="og:title" content="{title}">
@@ -352,7 +354,7 @@ page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="
 {_rows}
     </div>
     <p class="muted" style="margin-top:14px">Best poster award, IIT Kanpur, 2017.</p>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha384-NElt3Op+9NBMCYaef5HxeJmU4Xeard/Lku8ek6hoPTvYkQPh3zLIrJP7KiRocsxO" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
       (function () {{
         var pts = {_json.dumps(_pts)};
@@ -372,7 +374,7 @@ page("conferences.html", "Conferences | Venu Gopal Agarwal", f"""    <h1 class="
         var e = mk('eumap', {{}}); e[0].fitBounds([[46.3, 6.3], [49.3, 8.9]], {{padding: [20, 20]}});
         document.querySelector('.maps').classList.add('ready');
       }})();
-    </script>""", desc="Conference talks and posters by Venu Gopal Agarwal, shown on a world map.", head='\n  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">')
+    </script>""", desc="Conference talks and posters by Venu Gopal Agarwal, shown on a world map.", head='\n  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha384-c6Rcwz4e4CITMbu/NBmnNS8yN2sC3cUElMEMfP3vqqKFp7GOYaaBBCqmaWBjmkjb" crossorigin="anonymous" referrerpolicy="no-referrer">')
 
 pubs = "\n".join(f'    <div class="pub"><span class="venue">{v}</span><p class="title"><a href="{u}">{t}</a></p><p class="authors">{a}</p></div>' for v, t, a, u in PUBS)
 page("publications.html", "Publications | Venu Gopal Agarwal", f"""    <h1 class="page">Publications</h1>
@@ -422,7 +424,7 @@ page("cv.html", "CV | Venu Gopal Agarwal", """    <h1 class="page">Curriculum vi
 
 page("contact.html", "Contact | Venu Gopal Agarwal", """    <h1 class="page">Contact</h1>
     <div class="cards" style="margin-top:24px">
-      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:venu.agarwal@epfl.ch">venu.agarwal@epfl.ch</a> (EPFL)<br><a href="mailto:13agarwalvenu@gmail.com">13agarwalvenu@gmail.com</a></p></div>
+      <div class="card"><div class="icon">✉️</div><h3>Email</h3><p><a href="mailto:venu.agarwal@epfl.ch">venu.agarwal@epfl.ch</a> (EPFL)</p></div>
       <div class="card"><div class="icon">🏛️</div><h3>Office</h3><p>Laboratory of Renewable Energy Science and Engineering (LRESE)<br>EPFL, 1015 Lausanne, Switzerland</p></div>
       <div class="card"><div class="icon">🔗</div><h3>Profiles</h3><p><a href="https://scholar.google.com/citations?user=9_OIf0YAAAAJ">Google Scholar</a><br><a href="https://orcid.org/0000-0003-2992-6539">ORCID 0000-0003-2992-6539</a><br><a href="https://www.linkedin.com/in/venu-agarwal-phd-08076a191/">LinkedIn</a><br><a href="https://people.epfl.ch/venu.agarwal">EPFL people page</a></p></div>
     </div>
